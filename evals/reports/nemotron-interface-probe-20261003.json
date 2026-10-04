@@ -1,0 +1,15 @@
+{
+  "model": "nvidia/nemotron-3-super-120b-a12b",
+  "temperature": 0,
+  "enable_thinking": false,
+  "max_tokens": 1500,
+  "results": [
+    {
+      "code": "EXECUTION_ERROR",
+      "message": "执行异常，请检查任务轨迹。",
+      "retryable": false,
+      "error_type": "APIStatusError",
+      "http_status": 410
+    }
+  ]
+}

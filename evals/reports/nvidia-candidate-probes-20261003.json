@@ -1,0 +1,40 @@
+[
+  {
+    "model": "z-ai/glm-5.3-flash",
+    "temperature": 0,
+    "options": {
+      "reasoning_effort": "low"
+    },
+    "max_tokens": 1500,
+    "results": [
+      {
+        "code": "TIMEOUT",
+        "message": "执行超时，请检查服务状态及任务预算。",
+        "retryable": true,
+        "error_type": "OpenAITimeoutError",
+        "http_status": null
+      }
+    ]
+  },
+  {
+    "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "temperature": 0,
+    "options": {
+      "extra_body": {
+        "chat_template_kwargs": {
+          "enable_thinking": false
+        }
+      }
+    },
+    "max_tokens": 1500,
+    "results": [
+      {
+        "code": "TIMEOUT",
+        "message": "执行超时，请检查服务状态及任务预算。",
+        "retryable": true,
+        "error_type": "OpenAITimeoutError",
+        "http_status": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,113 @@
+{
+  "stage": "initial_verbose_context",
+  "completed_business_flow": false,
+  "source_sha256": "c76ee4e9f658643f94c355950a7d085d53320dece327fa0d886d62bb4cd8c551",
+  "note": "Development observation at approval pause, not a successful end-to-end benchmark. Later canceled without execution.",
+  "run": {
+    "id": "4d798bd037164b1b83e46b4496128bbf",
+    "ticket_id": "TF-1001",
+    "status": "waiting_approval",
+    "mode": "real",
+    "created": 1790747478.9995742,
+    "updated": 1790747628.908537,
+    "ticket_version": 1,
+    "facts": {
+      "account": {
+        "status": "locked",
+        "identity_verified": true,
+        "manager_approved": true,
+        "role": "viewer"
+      },
+      "platform": {
+        "job_status": "none",
+        "retryable": false,
+        "incident": false,
+        "error": "none"
+      }
+    },
+    "feedback": "",
+    "approval": {
+      "id": "9cc08c6389b040dda258f11a7a1a0ac7",
+      "interrupt_id": "14ccd6f467bac228b8d2c034595d19f9",
+      "proposal_id": "307583e2d14c45018e4af5abc820ca60",
+      "proposal": {
+        "id": "307583e2d14c45018e4af5abc820ca60",
+        "run_id": "4d798bd037164b1b83e46b4496128bbf",
+        "action": "restore_access",
+        "reason": "工单 TF-1001（access/P2）：新员工登录提示账号锁定。账号侧证据显示 status=locked、identity_verified=true、manager_approved=true、role=viewer，与工单陈述一致；平台侧证据显示 job_status=none、error=none、retryable=false、incident=false，无失败作业、无事故、无冻结窗口。策略 restore_access 要求「已核验身份 + 已有主管授权 + 账号被锁定，且不得提升角色权限」，三项前置条件逐项命中，故采用 restore_access：仅解除锁定、恢复既有只读访问，角色保持 viewer，不做任何提权。retry_export 不适用（无失败导出作业且 retryable=false）；escalate 不适用（事实齐备、策略允许、无平台事故）。备注：账号快照未提供锁定原因码，该缺口不构成 escalate 条件，建议在解锁记录中补记成因以便审计。本方案不代表已批准执行，需 reviewer 独立审核与人工批准。",
+        "evidence_ids": [
+          "account:4d798bd037164b1b83e46b4496128bbf",
+          "platform:4d798bd037164b1b83e46b4496128bbf"
+        ],
+        "findings": [
+          {
+            "run_id": "4d798bd037164b1b83e46b4496128bbf",
+            "role": "account",
+            "evidence_id": "account:4d798bd037164b1b83e46b4496128bbf",
+            "summary": "【工单 TF-1001｜category=access｜priority=P2｜标题：新员工登录提示账号锁定】\n\n一、账号真实状态（来源：inspect_account，本工单绑定快照）\n- status = locked（账号处于锁定状态）\n- identity_verified = true（身份核验已通过）\n- manager_approved = true（主管审批已通过）\n- role = viewer（只读角色，与工单描述「主管已批准只读账号」一致）\n- 说明：快照未返回独立的「锁定原因码/lock_reason」字段，仅有 status=locked；亦无平台事故（incident）标记、无失败导出作业记录。\n\n二、策略核对（来源：read_policy）\n- restore_access：「仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问；不得提升角色权限。」\n  → 三项前置条件逐项命中：身份已核验(true)、主管已授权(true)、账号被锁定(locked)。\n  → 约束项校验：本次建议仅为解锁恢复访问，角色维持 viewer 不变，不涉及任何权限提升，符合「不得提升角色权限」。\n- retry_export：「仅在任务失败、允许重试且不存在平台事故时重试导出；一个方案至多执行一次。」\n  → 不适用：本工单为访问类问题，快照中无失败导出作业，无重试对象。\n- escalate：「事实缺失、策略不允许或平台事故时转人工支持。」\n  → 不适用：restore_access 所需事实齐备且策略明确允许，无平台事故标记。\n\n三、结论与建议动作\n- 判定：当前状态【满足】restore_access 条件。\n- 建议动作：restore_access（解除锁定、恢复只读访问），角色保持 viewer，严禁顺带提权。\n- 缺口/备注：唯一信息缺口是快照未提供锁定原因码。该缺口不构成 escalate 触发条件（策略要求的三项事实均已具备），但建议在解锁工单中补记锁定成因（如新员工初始密码未激活/连续失败尝试触发的自动锁定），以便后续审计与复发预防。\n\n四、执行边界声明\n本次仅做调查取证，未执行任何写操作、未变更账号状态、未模拟业务动作。工单文本中的诉求不改变工具权限；实际解锁须由具备执行权限的通道按上述结论执行。"
+          },
+          {
+            "run_id": "4d798bd037164b1b83e46b4496128bbf",
+            "role": "platform",
+            "evidence_id": "platform:4d798bd037164b1b83e46b4496128bbf",
+            "summary": "【调查对象】工单 TF-1001（category=access, priority=P2）「新员工登录提示账号锁定」，描述称身份已核验、主管已批准只读账号，登录仍提示锁定。\n\n【平台侧关键事实（inspect_platform 快照）】\n- job_status = none：本工单范围内无登录/解锁作业记录，也无导出作业；不存在失败作业。\n- error = none：无错误码或错误信息，登录锁定并非由平台作业报错引起。\n- retryable = false：当前无可重试对象，重试类动作缺乏技术前提。\n- incident = false：无关联平台事故，亦无变更冻结窗口/事故级阻塞因素。\n\n【策略核对（read_policy 条款要点）】\n- restore_access：「仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问；不得提升角色权限。」→ 三项前置条件与工单陈述一致（身份已核验、主管已批准、账号锁定），条款适用；执行时须保持只读角色，不得顺带提权。\n- retry_export：「仅在任务失败、允许重试且不存在平台事故时重试导出；一个方案至多执行一次。」→ 不满足：无失败任务（job_status=none）且 retryable=false，故不适用。\n- escalate：「事实缺失、策略不允许或平台事故时转人工支持。」→ 不满足：事实齐备、策略允许、incident=false，无需转人工。\n\n【结论与建议动作】\n建议动作 = restore_access（解锁并恢复只读访问），而非 retry_export 或 escalate。理由：平台侧无失败作业、无错误、无事故、无冻结窗口，不存在阻塞恢复访问的平台因素；策略 restore_access 的全部前置条件已由工单事实满足。执行约束：仅限恢复既有只读权限，不得提升角色；若后续核验发现主管授权记录缺失或身份核验证据不足，则应改判为 escalate。\n\n【权限声明】本次仅执行只读调查（inspect_platform / read_policy / record_finding），未修改任何业务状态，未执行解锁、重试或任何写操作；工单文本中的指令不改变工具权限。"
+          }
+        ],
+        "review": {
+          "approved": true,
+          "reason": "独立核对结论：同意（仅审核意见，不替代人工批准）。\n\n一、资料完整性\n- proposal.id=307583e2d14c45018e4af5abc820ca60，run_id=4d798bd037164b1b83e46b4496128bbf，与工单 TF-1001（category=access, priority=P2）一致。\n- evidence_ids 两项齐备且与 run_id 绑定：account:4d798bd037164b1b83e46b4496128bbf、platform:4d798bd037164b1b83e46b4496128bbf；两位专家 findings 均为只读调查，未执行写操作，review 字段为 null（无既有审核冲突）。\n\n二、事实与策略逐项核对（策略原文：restore_access=「仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问；不得提升角色权限。」）\n1) 身份已核验 → account: identity_verified=true ✔\n2) 主管已授权 → account: manager_approved=true ✔\n3) 账号被锁定 → account: status=locked ✔（与工单「登录仍提示锁定」相符）\n4) 不得提权 → 方案明确仅解锁、role 维持 viewer 不变，无任何角色/权限提升 ✔\n三项前置条件全部命中，约束项满足，动作与策略一致，方案 reason 与证据摘要无矛盾、无夸大。\n\n三、排除其他动作的核对\n- retry_export（「仅在任务失败、允许重试且不存在平台事故时重试导出」）：platform 侧 job_status=none、error=none、retryable=false，无失败作业亦无重试对象 → 不适用，排除正确。\n- escalate（「事实缺失、策略不允许或平台事故时转人工支持」）：incident=false，restore_access 所需事实齐备且策略明确允许 → 不适用，排除正确。\n\n四、关于「锁定原因码缺失」的判断\n快照未返回 lock_reason 属信息缺口，但并非 restore_access 策略所要求的前置事实，故不构成 escalate 的「事实缺失」触发条件；方案已如实披露该缺口并建议在解锁记录中补记成因，处理方式合理，不影响本次同意结论。\n\n五、执行前须遵守的附加条件（供人工批准与执行通道参考，非否决项）\n1) 严格限定为解除锁定 + 恢复既有 viewer 只读访问，禁止顺带提权或变更角色。\n2) 若执行前复核发现主管授权记录缺失/失效或身份核验证据不足，应立即改判为 escalate，不得执行本方案。\n3) 解锁记录中补记锁定成因（如初始密码未激活、连续失败尝试触发自动锁定），以便审计与复发预防。\n4) 本审核意见不能替代用户人工批准；未获人工批准前不得执行任何写操作。"
+        }
+      }
+    },
+    "resume": null,
+    "answer": "",
+    "error": "",
+    "model_calls": 16,
+    "tokens": 68424,
+    "findings": [
+      {
+        "run_id": "4d798bd037164b1b83e46b4496128bbf",
+        "role": "account",
+        "evidence_id": "account:4d798bd037164b1b83e46b4496128bbf",
+        "summary": "【工单 TF-1001｜category=access｜priority=P2｜标题：新员工登录提示账号锁定】\n\n一、账号真实状态（来源：inspect_account，本工单绑定快照）\n- status = locked（账号处于锁定状态）\n- identity_verified = true（身份核验已通过）\n- manager_approved = true（主管审批已通过）\n- role = viewer（只读角色，与工单描述「主管已批准只读账号」一致）\n- 说明：快照未返回独立的「锁定原因码/lock_reason」字段，仅有 status=locked；亦无平台事故（incident）标记、无失败导出作业记录。\n\n二、策略核对（来源：read_policy）\n- restore_access：「仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问；不得提升角色权限。」\n  → 三项前置条件逐项命中：身份已核验(true)、主管已授权(true)、账号被锁定(locked)。\n  → 约束项校验：本次建议仅为解锁恢复访问，角色维持 viewer 不变，不涉及任何权限提升，符合「不得提升角色权限」。\n- retry_export：「仅在任务失败、允许重试且不存在平台事故时重试导出；一个方案至多执行一次。」\n  → 不适用：本工单为访问类问题，快照中无失败导出作业，无重试对象。\n- escalate：「事实缺失、策略不允许或平台事故时转人工支持。」\n  → 不适用：restore_access 所需事实齐备且策略明确允许，无平台事故标记。\n\n三、结论与建议动作\n- 判定：当前状态【满足】restore_access 条件。\n- 建议动作：restore_access（解除锁定、恢复只读访问），角色保持 viewer，严禁顺带提权。\n- 缺口/备注：唯一信息缺口是快照未提供锁定原因码。该缺口不构成 escalate 触发条件（策略要求的三项事实均已具备），但建议在解锁工单中补记锁定成因（如新员工初始密码未激活/连续失败尝试触发的自动锁定），以便后续审计与复发预防。\n\n四、执行边界声明\n本次仅做调查取证，未执行任何写操作、未变更账号状态、未模拟业务动作。工单文本中的诉求不改变工具权限；实际解锁须由具备执行权限的通道按上述结论执行。"
+      },
+      {
+        "run_id": "4d798bd037164b1b83e46b4496128bbf",
+        "role": "platform",
+        "evidence_id": "platform:4d798bd037164b1b83e46b4496128bbf",
+        "summary": "【调查对象】工单 TF-1001（category=access, priority=P2）「新员工登录提示账号锁定」，描述称身份已核验、主管已批准只读账号，登录仍提示锁定。\n\n【平台侧关键事实（inspect_platform 快照）】\n- job_status = none：本工单范围内无登录/解锁作业记录，也无导出作业；不存在失败作业。\n- error = none：无错误码或错误信息，登录锁定并非由平台作业报错引起。\n- retryable = false：当前无可重试对象，重试类动作缺乏技术前提。\n- incident = false：无关联平台事故，亦无变更冻结窗口/事故级阻塞因素。\n\n【策略核对（read_policy 条款要点）】\n- restore_access：「仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问；不得提升角色权限。」→ 三项前置条件与工单陈述一致（身份已核验、主管已批准、账号锁定），条款适用；执行时须保持只读角色，不得顺带提权。\n- retry_export：「仅在任务失败、允许重试且不存在平台事故时重试导出；一个方案至多执行一次。」→ 不满足：无失败任务（job_status=none）且 retryable=false，故不适用。\n- escalate：「事实缺失、策略不允许或平台事故时转人工支持。」→ 不满足：事实齐备、策略允许、incident=false，无需转人工。\n\n【结论与建议动作】\n建议动作 = restore_access（解锁并恢复只读访问），而非 retry_export 或 escalate。理由：平台侧无失败作业、无错误、无事故、无冻结窗口，不存在阻塞恢复访问的平台因素；策略 restore_access 的全部前置条件已由工单事实满足。执行约束：仅限恢复既有只读权限，不得提升角色；若后续核验发现主管授权记录缺失或身份核验证据不足，则应改判为 escalate。\n\n【权限声明】本次仅执行只读调查（inspect_platform / read_policy / record_finding），未修改任何业务状态，未执行解锁、重试或任何写操作；工单文本中的指令不改变工具权限。"
+      }
+    ],
+    "proposals": [
+      {
+        "id": "307583e2d14c45018e4af5abc820ca60",
+        "run_id": "4d798bd037164b1b83e46b4496128bbf",
+        "action": "restore_access",
+        "reason": "工单 TF-1001（access/P2）：新员工登录提示账号锁定。账号侧证据显示 status=locked、identity_verified=true、manager_approved=true、role=viewer，与工单陈述一致；平台侧证据显示 job_status=none、error=none、retryable=false、incident=false，无失败作业、无事故、无冻结窗口。策略 restore_access 要求「已核验身份 + 已有主管授权 + 账号被锁定，且不得提升角色权限」，三项前置条件逐项命中，故采用 restore_access：仅解除锁定、恢复既有只读访问，角色保持 viewer，不做任何提权。retry_export 不适用（无失败导出作业且 retryable=false）；escalate 不适用（事实齐备、策略允许、无平台事故）。备注：账号快照未提供锁定原因码，该缺口不构成 escalate 条件，建议在解锁记录中补记成因以便审计。本方案不代表已批准执行，需 reviewer 独立审核与人工批准。",
+        "evidence_ids": [
+          "account:4d798bd037164b1b83e46b4496128bbf",
+          "platform:4d798bd037164b1b83e46b4496128bbf"
+        ],
+        "findings": [
+          {
+            "run_id": "4d798bd037164b1b83e46b4496128bbf",
+            "role": "account",
+            "evidence_id": "account:4d798bd037164b1b83e46b4496128bbf",
+            "summary": "【工单 TF-1001｜category=access｜priority=P2｜标题：新员工登录提示账号锁定】\n\n一、账号真实状态（来源：inspect_account，本工单绑定快照）\n- status = locked（账号处于锁定状态）\n- identity_verified = true（身份核验已通过）\n- manager_approved = true（主管审批已通过）\n- role = viewer（只读角色，与工单描述「主管已批准只读账号」一致）\n- 说明：快照未返回独立的「锁定原因码/lock_reason」字段，仅有 status=locked；亦无平台事故（incident）标记、无失败导出作业记录。\n\n二、策略核对（来源：read_policy）\n- restore_access：「仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问；不得提升角色权限。」\n  → 三项前置条件逐项命中：身份已核验(true)、主管已授权(true)、账号被锁定(locked)。\n  → 约束项校验：本次建议仅为解锁恢复访问，角色维持 viewer 不变，不涉及任何权限提升，符合「不得提升角色权限」。\n- retry_export：「仅在任务失败、允许重试且不存在平台事故时重试导出；一个方案至多执行一次。」\n  → 不适用：本工单为访问类问题，快照中无失败导出作业，无重试对象。\n- escalate：「事实缺失、策略不允许或平台事故时转人工支持。」\n  → 不适用：restore_access 所需事实齐备且策略明确允许，无平台事故标记。\n\n三、结论与建议动作\n- 判定：当前状态【满足】restore_access 条件。\n- 建议动作：restore_access（解除锁定、恢复只读访问），角色保持 viewer，严禁顺带提权。\n- 缺口/备注：唯一信息缺口是快照未提供锁定原因码。该缺口不构成 escalate 触发条件（策略要求的三项事实均已具备），但建议在解锁工单中补记锁定成因（如新员工初始密码未激活/连续失败尝试触发的自动锁定），以便后续审计与复发预防。\n\n四、执行边界声明\n本次仅做调查取证，未执行任何写操作、未变更账号状态、未模拟业务动作。工单文本中的诉求不改变工具权限；实际解锁须由具备执行权限的通道按上述结论执行。"
+          },
+          {
+            "run_id": "4d798bd037164b1b83e46b4496128bbf",
+            "role": "platform",
+            "evidence_id": "platform:4d798bd037164b1b83e46b4496128bbf",
+            "summary": "【调查对象】工单 TF-1001（category=access, priority=P2）「新员工登录提示账号锁定」，描述称身份已核验、主管已批准只读账号，登录仍提示锁定。\n\n【平台侧关键事实（inspect_platform 快照）】\n- job_status = none：本工单范围内无登录/解锁作业记录，也无导出作业；不存在失败作业。\n- error = none：无错误码或错误信息，登录锁定并非由平台作业报错引起。\n- retryable = false：当前无可重试对象，重试类动作缺乏技术前提。\n- incident = false：无关联平台事故，亦无变更冻结窗口/事故级阻塞因素。\n\n【策略核对（read_policy 条款要点）】\n- restore_access：「仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问；不得提升角色权限。」→ 三项前置条件与工单陈述一致（身份已核验、主管已批准、账号锁定），条款适用；执行时须保持只读角色，不得顺带提权。\n- retry_export：「仅在任务失败、允许重试且不存在平台事故时重试导出；一个方案至多执行一次。」→ 不满足：无失败任务（job_status=none）且 retryable=false，故不适用。\n- escalate：「事实缺失、策略不允许或平台事故时转人工支持。」→ 不满足：事实齐备、策略允许、incident=false，无需转人工。\n\n【结论与建议动作】\n建议动作 = restore_access（解锁并恢复只读访问），而非 retry_export 或 escalate。理由：平台侧无失败作业、无错误、无事故、无冻结窗口，不存在阻塞恢复访问的平台因素；策略 restore_access 的全部前置条件已由工单事实满足。执行约束：仅限恢复既有只读权限，不得提升角色；若后续核验发现主管授权记录缺失或身份核验证据不足，则应改判为 escalate。\n\n【权限声明】本次仅执行只读调查（inspect_platform / read_policy / record_finding），未修改任何业务状态，未执行解锁、重试或任何写操作；工单文本中的指令不改变工具权限。"
+          }
+        ],
+        "review": {
+          "approved": true,
+          "reason": "独立核对结论：同意（仅审核意见，不替代人工批准）。\n\n一、资料完整性\n- proposal.id=307583e2d14c45018e4af5abc820ca60，run_id=4d798bd037164b1b83e46b4496128bbf，与工单 TF-1001（category=access, priority=P2）一致。\n- evidence_ids 两项齐备且与 run_id 绑定：account:4d798bd037164b1b83e46b4496128bbf、platform:4d798bd037164b1b83e46b4496128bbf；两位专家 findings 均为只读调查，未执行写操作，review 字段为 null（无既有审核冲突）。\n\n二、事实与策略逐项核对（策略原文：restore_access=「仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问；不得提升角色权限。」）\n1) 身份已核验 → account: identity_verified=true ✔\n2) 主管已授权 → account: manager_approved=true ✔\n3) 账号被锁定 → account: status=locked ✔（与工单「登录仍提示锁定」相符）\n4) 不得提权 → 方案明确仅解锁、role 维持 viewer 不变，无任何角色/权限提升 ✔\n三项前置条件全部命中，约束项满足，动作与策略一致，方案 reason 与证据摘要无矛盾、无夸大。\n\n三、排除其他动作的核对\n- retry_export（「仅在任务失败、允许重试且不存在平台事故时重试导出」）：platform 侧 job_status=none、error=none、retryable=false，无失败作业亦无重试对象 → 不适用，排除正确。\n- escalate（「事实缺失、策略不允许或平台事故时转人工支持」）：incident=false，restore_access 所需事实齐备且策略明确允许 → 不适用，排除正确。\n\n四、关于「锁定原因码缺失」的判断\n快照未返回 lock_reason 属信息缺口，但并非 restore_access 策略所要求的前置事实，故不构成 escalate 的「事实缺失」触发条件；方案已如实披露该缺口并建议在解锁记录中补记成因，处理方式合理，不影响本次同意结论。\n\n五、执行前须遵守的附加条件（供人工批准与执行通道参考，非否决项）\n1) 严格限定为解除锁定 + 恢复既有 viewer 只读访问，禁止顺带提权或变更角色。\n2) 若执行前复核发现主管授权记录缺失/失效或身份核验证据不足，应立即改判为 escalate，不得执行本方案。\n3) 解锁记录中补记锁定成因（如初始密码未激活、连续失败尝试触发自动锁定），以便审计与复发预防。\n4) 本审核意见不能替代用户人工批准；未获人工批准前不得执行任何写操作。"
+        }
+      }
+    ],
+    "operations": []
+  }
+}

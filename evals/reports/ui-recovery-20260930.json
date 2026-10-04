@@ -1,0 +1,533 @@
+{
+  "scope": "Manual browser approval/rejection + actual Docker recreation. Initial investigation used qwen3.8-max; resumed UI steps use current deepseek-v4-pro-0813 configuration. Not a homogeneous model benchmark.",
+  "before_recreate": {
+    "id": "e8d5f4a880c54e84826591f6d0505772",
+    "ticket_id": "TF-1001",
+    "status": "waiting_approval",
+    "mode": "real",
+    "created": 1790747981.9065943,
+    "updated": 1790774005.9716847,
+    "ticket_version": 1,
+    "facts": {
+      "account": {
+        "status": "locked",
+        "identity_verified": true,
+        "manager_approved": true,
+        "role": "viewer"
+      },
+      "platform": {
+        "job_status": "none",
+        "retryable": false,
+        "incident": false,
+        "error": "none"
+      }
+    },
+    "feedback": "",
+    "approval": {
+      "id": "5029051adf0f4f2291ac098b7d5bff19",
+      "interrupt_id": "1526ab6e4aea14859451cd417d1c3686",
+      "proposal_id": "fd3833f880824670b95ce7bd1e637e9c",
+      "proposal": {
+        "id": "fd3833f880824670b95ce7bd1e637e9c",
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "action": "escalate",
+        "reason": "人工已拒绝restore_access并要求转人工支持核查锁定成因。账号工具未返回锁定原因/时间/重试次数，平台工具亦缺失身份核验与主管授权事实且建议escalate；账号被锁定成因无法认定，故依策略转人工支持，不执行权限变更或作业重试。",
+        "evidence_ids": [
+          "account:e8d5f4a880c54e84826591f6d0505772",
+          "platform:e8d5f4a880c54e84826591f6d0505772"
+        ],
+        "findings": [
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "account",
+            "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+            "facts": {
+              "status": "locked",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          },
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "platform",
+            "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        ],
+        "review": {
+          "approved": true,
+          "reason": "锁定成因等关键事实缺失，且此前restore_access已被人工拒绝并要求转人工核查，符合escalate策略。"
+        }
+      }
+    },
+    "resume": null,
+    "answer": "方案已通过独立审核，现等待您的人工批准后才能执行。\n\n**工单 TF-1001 处理方案（待批准）**\n- proposal_id：`b279a346156d48b28d2710b8455a7a97`\n- 动作：restore_access（恢复只读访问，角色保持 viewer，不提权）\n- 证据：\n  - `account:e8d5f4a880c54e84826591f6d0505772`：status=locked、identity_verified=true、manager_approved=true、role=viewer，满足策略三项条件；锁定成因字段未返回。\n  - `platform:e8d5f4a880c54e84826591f6d0505772`：job_status=none、incident=false、retryable=false、error=none，无平台事故或作业阻断。\n- 审核：reviewer 结论为同意，理由为账号侧事实完整且平台无事故，不触发 escalate；审核不等同人工批准。\n\n请回复“批准执行”以调用 execute_resolution；若拒绝，我将按反馈修订方案或转人工处理。",
+    "error": "",
+    "model_calls": 22,
+    "tokens": 43099,
+    "findings": [
+      {
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "role": "account",
+        "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+        "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+        "facts": {
+          "status": "locked",
+          "identity_verified": true,
+          "manager_approved": true,
+          "role": "viewer"
+        }
+      },
+      {
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "role": "platform",
+        "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+        "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+        "facts": {
+          "job_status": "none",
+          "retryable": false,
+          "incident": false,
+          "error": "none"
+        }
+      }
+    ],
+    "proposals": [
+      {
+        "id": "b279a346156d48b28d2710b8455a7a97",
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "action": "restore_access",
+        "reason": "账号工具返回status=locked、identity_verified=true、manager_approved=true、role=viewer，满足策略三项条件，角色保持viewer不提升。平台快照job_status=none、incident=false、retryable=false，无平台侧阻断或事故，其缺失字段属账号域并已由账号工具证实。故执行恢复只读访问，不涉及作业重试。",
+        "evidence_ids": [
+          "account:e8d5f4a880c54e84826591f6d0505772",
+          "platform:e8d5f4a880c54e84826591f6d0505772"
+        ],
+        "findings": [
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "account",
+            "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+            "facts": {
+              "status": "locked",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          },
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "platform",
+            "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        ],
+        "review": {
+          "approved": true,
+          "reason": "账号事实已证实locked、identity_verified、manager_approved三项，角色仍为viewer未提权，符合restore_access策略；平台incident=false、error=none，无事故或阻断，缺失字段属账号域且已补齐，不构成escalate条件。审核不等于人工批准。"
+        }
+      },
+      {
+        "id": "fd3833f880824670b95ce7bd1e637e9c",
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "action": "escalate",
+        "reason": "人工已拒绝restore_access并要求转人工支持核查锁定成因。账号工具未返回锁定原因/时间/重试次数，平台工具亦缺失身份核验与主管授权事实且建议escalate；账号被锁定成因无法认定，故依策略转人工支持，不执行权限变更或作业重试。",
+        "evidence_ids": [
+          "account:e8d5f4a880c54e84826591f6d0505772",
+          "platform:e8d5f4a880c54e84826591f6d0505772"
+        ],
+        "findings": [
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "account",
+            "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+            "facts": {
+              "status": "locked",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          },
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "platform",
+            "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        ],
+        "review": {
+          "approved": true,
+          "reason": "锁定成因等关键事实缺失，且此前restore_access已被人工拒绝并要求转人工核查，符合escalate策略。"
+        }
+      }
+    ],
+    "operations": []
+  },
+  "after_recreate": {
+    "id": "e8d5f4a880c54e84826591f6d0505772",
+    "ticket_id": "TF-1001",
+    "status": "waiting_approval",
+    "mode": "real",
+    "created": 1790747981.9065943,
+    "updated": 1790774005.9716847,
+    "ticket_version": 1,
+    "facts": {
+      "account": {
+        "status": "locked",
+        "identity_verified": true,
+        "manager_approved": true,
+        "role": "viewer"
+      },
+      "platform": {
+        "job_status": "none",
+        "retryable": false,
+        "incident": false,
+        "error": "none"
+      }
+    },
+    "feedback": "",
+    "approval": {
+      "id": "5029051adf0f4f2291ac098b7d5bff19",
+      "interrupt_id": "1526ab6e4aea14859451cd417d1c3686",
+      "proposal_id": "fd3833f880824670b95ce7bd1e637e9c",
+      "proposal": {
+        "id": "fd3833f880824670b95ce7bd1e637e9c",
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "action": "escalate",
+        "reason": "人工已拒绝restore_access并要求转人工支持核查锁定成因。账号工具未返回锁定原因/时间/重试次数，平台工具亦缺失身份核验与主管授权事实且建议escalate；账号被锁定成因无法认定，故依策略转人工支持，不执行权限变更或作业重试。",
+        "evidence_ids": [
+          "account:e8d5f4a880c54e84826591f6d0505772",
+          "platform:e8d5f4a880c54e84826591f6d0505772"
+        ],
+        "findings": [
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "account",
+            "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+            "facts": {
+              "status": "locked",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          },
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "platform",
+            "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        ],
+        "review": {
+          "approved": true,
+          "reason": "锁定成因等关键事实缺失，且此前restore_access已被人工拒绝并要求转人工核查，符合escalate策略。"
+        }
+      }
+    },
+    "resume": null,
+    "answer": "方案已通过独立审核，现等待您的人工批准后才能执行。\n\n**工单 TF-1001 处理方案（待批准）**\n- proposal_id：`b279a346156d48b28d2710b8455a7a97`\n- 动作：restore_access（恢复只读访问，角色保持 viewer，不提权）\n- 证据：\n  - `account:e8d5f4a880c54e84826591f6d0505772`：status=locked、identity_verified=true、manager_approved=true、role=viewer，满足策略三项条件；锁定成因字段未返回。\n  - `platform:e8d5f4a880c54e84826591f6d0505772`：job_status=none、incident=false、retryable=false、error=none，无平台事故或作业阻断。\n- 审核：reviewer 结论为同意，理由为账号侧事实完整且平台无事故，不触发 escalate；审核不等同人工批准。\n\n请回复“批准执行”以调用 execute_resolution；若拒绝，我将按反馈修订方案或转人工处理。",
+    "error": "",
+    "model_calls": 22,
+    "tokens": 43099,
+    "findings": [
+      {
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "role": "account",
+        "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+        "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+        "facts": {
+          "status": "locked",
+          "identity_verified": true,
+          "manager_approved": true,
+          "role": "viewer"
+        }
+      },
+      {
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "role": "platform",
+        "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+        "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+        "facts": {
+          "job_status": "none",
+          "retryable": false,
+          "incident": false,
+          "error": "none"
+        }
+      }
+    ],
+    "proposals": [
+      {
+        "id": "b279a346156d48b28d2710b8455a7a97",
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "action": "restore_access",
+        "reason": "账号工具返回status=locked、identity_verified=true、manager_approved=true、role=viewer，满足策略三项条件，角色保持viewer不提升。平台快照job_status=none、incident=false、retryable=false，无平台侧阻断或事故，其缺失字段属账号域并已由账号工具证实。故执行恢复只读访问，不涉及作业重试。",
+        "evidence_ids": [
+          "account:e8d5f4a880c54e84826591f6d0505772",
+          "platform:e8d5f4a880c54e84826591f6d0505772"
+        ],
+        "findings": [
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "account",
+            "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+            "facts": {
+              "status": "locked",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          },
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "platform",
+            "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        ],
+        "review": {
+          "approved": true,
+          "reason": "账号事实已证实locked、identity_verified、manager_approved三项，角色仍为viewer未提权，符合restore_access策略；平台incident=false、error=none，无事故或阻断，缺失字段属账号域且已补齐，不构成escalate条件。审核不等于人工批准。"
+        }
+      },
+      {
+        "id": "fd3833f880824670b95ce7bd1e637e9c",
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "action": "escalate",
+        "reason": "人工已拒绝restore_access并要求转人工支持核查锁定成因。账号工具未返回锁定原因/时间/重试次数，平台工具亦缺失身份核验与主管授权事实且建议escalate；账号被锁定成因无法认定，故依策略转人工支持，不执行权限变更或作业重试。",
+        "evidence_ids": [
+          "account:e8d5f4a880c54e84826591f6d0505772",
+          "platform:e8d5f4a880c54e84826591f6d0505772"
+        ],
+        "findings": [
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "account",
+            "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+            "facts": {
+              "status": "locked",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          },
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "platform",
+            "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        ],
+        "review": {
+          "approved": true,
+          "reason": "锁定成因等关键事实缺失，且此前restore_access已被人工拒绝并要求转人工核查，符合escalate策略。"
+        }
+      }
+    ],
+    "operations": []
+  },
+  "restart_checks": {
+    "waiting_preserved": true,
+    "approval_id_preserved": true,
+    "no_extra_model_calls": true,
+    "no_early_action": true
+  },
+  "final": {
+    "id": "e8d5f4a880c54e84826591f6d0505772",
+    "ticket_id": "TF-1001",
+    "status": "completed",
+    "mode": "real",
+    "created": 1790747981.9065943,
+    "updated": 1790774154.918959,
+    "ticket_version": 1,
+    "facts": {
+      "account": {
+        "status": "locked",
+        "identity_verified": true,
+        "manager_approved": true,
+        "role": "viewer"
+      },
+      "platform": {
+        "job_status": "none",
+        "retryable": false,
+        "incident": false,
+        "error": "none"
+      }
+    },
+    "feedback": "",
+    "approval": null,
+    "resume": null,
+    "answer": "已转人工处理。\n\n**工单 TF-1001 结论**\n- 问题：账号 locked，但锁定成因、时间、重试次数等字段账号/平台工具均未返回；平台快照为 job_status=none、retryable=false、incident=false。\n- 处理：首个 restore_access 方案被人工拒绝，按要求改为转人工支持核查锁定成因，不再恢复访问。\n- 审核：escalate 方案经独立审核同意。\n- 执行结果：已执行成功，工单状态 escalated，转为人工支持。",
+    "error": "",
+    "model_calls": 23,
+    "tokens": 47125,
+    "findings": [
+      {
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "role": "account",
+        "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+        "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+        "facts": {
+          "status": "locked",
+          "identity_verified": true,
+          "manager_approved": true,
+          "role": "viewer"
+        }
+      },
+      {
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "role": "platform",
+        "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+        "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+        "facts": {
+          "job_status": "none",
+          "retryable": false,
+          "incident": false,
+          "error": "none"
+        }
+      }
+    ],
+    "proposals": [
+      {
+        "id": "b279a346156d48b28d2710b8455a7a97",
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "action": "restore_access",
+        "reason": "账号工具返回status=locked、identity_verified=true、manager_approved=true、role=viewer，满足策略三项条件，角色保持viewer不提升。平台快照job_status=none、incident=false、retryable=false，无平台侧阻断或事故，其缺失字段属账号域并已由账号工具证实。故执行恢复只读访问，不涉及作业重试。",
+        "evidence_ids": [
+          "account:e8d5f4a880c54e84826591f6d0505772",
+          "platform:e8d5f4a880c54e84826591f6d0505772"
+        ],
+        "findings": [
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "account",
+            "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+            "facts": {
+              "status": "locked",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          },
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "platform",
+            "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        ],
+        "review": {
+          "approved": true,
+          "reason": "账号事实已证实locked、identity_verified、manager_approved三项，角色仍为viewer未提权，符合restore_access策略；平台incident=false、error=none，无事故或阻断，缺失字段属账号域且已补齐，不构成escalate条件。审核不等于人工批准。"
+        }
+      },
+      {
+        "id": "fd3833f880824670b95ce7bd1e637e9c",
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "action": "escalate",
+        "reason": "人工已拒绝restore_access并要求转人工支持核查锁定成因。账号工具未返回锁定原因/时间/重试次数，平台工具亦缺失身份核验与主管授权事实且建议escalate；账号被锁定成因无法认定，故依策略转人工支持，不执行权限变更或作业重试。",
+        "evidence_ids": [
+          "account:e8d5f4a880c54e84826591f6d0505772",
+          "platform:e8d5f4a880c54e84826591f6d0505772"
+        ],
+        "findings": [
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "account",
+            "evidence_id": "account:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "inspect_account返回：status=locked，identity_verified=true，manager_approved=true，role=viewer。read_policy的restore_access要求：仅对已核验身份、已有主管授权且账号被锁定的员工恢复访问，不得提升角色权限。工具返回的三项条件均满足，角色保持viewer；工具未返回锁定原因、锁定时间、重试次数或平台事故等字段，故不对锁定成因作判断。",
+            "facts": {
+              "status": "locked",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          },
+          {
+            "run_id": "e8d5f4a880c54e84826591f6d0505772",
+            "role": "platform",
+            "evidence_id": "platform:e8d5f4a880c54e84826591f6d0505772",
+            "summary": "TF-1001平台核查：job_status=none，retryable=false，incident=false，error=none；快照未返回登录失败记录、账号锁定状态、身份核验或主管授权信息。策略：restore_access须同时满足已核验身份、已有主管授权、账号被锁定，且不得提升权限；事实缺失时按escalate转人工支持，不执行权限变更或作业重试。",
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        ],
+        "review": {
+          "approved": true,
+          "reason": "锁定成因等关键事实缺失，且此前restore_access已被人工拒绝并要求转人工核查，符合escalate策略。"
+        }
+      }
+    ],
+    "operations": [
+      {
+        "proposal_id": "fd3833f880824670b95ce7bd1e637e9c",
+        "run_id": "e8d5f4a880c54e84826591f6d0505772",
+        "result": {
+          "action": "escalate",
+          "ticket_id": "TF-1001",
+          "ticket_status": "escalated",
+          "demo": true
+        },
+        "created": 1790774152.1038907
+      }
+    ]
+  },
+  "final_checks": {
+    "completed": true,
+    "exactly_one_operation": true,
+    "expected_escalation": true,
+    "rejected_proposal_not_executed": true
+  },
+  "complete": true
+}

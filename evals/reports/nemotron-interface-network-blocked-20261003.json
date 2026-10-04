@@ -1,0 +1,15 @@
+{
+  "model": "nvidia/nemotron-3-super-120b-a12b",
+  "temperature": 0,
+  "enable_thinking": false,
+  "max_tokens": 1500,
+  "results": [
+    {
+      "code": "MODEL_CONNECTION",
+      "message": "模型服务连接失败。",
+      "retryable": true,
+      "error_type": "OpenAIConnectionError",
+      "http_status": null
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+name: Offline regression
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      MODEL_MODE: scripted
+      LLM_API_KEY: ""
+      DATA_DIR: /tmp/ticketflow-ci
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q --junitxml=reports/tests.xml
+      - run: python -m evals.run_eval --output reports/scripted.json
+      - run: python -m evals.compare_agents --mode scripted --output reports/comparison-scripted.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: offline-regression
+          path: reports/

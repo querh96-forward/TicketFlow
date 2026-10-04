@@ -1,0 +1,53 @@
+{
+  "model": "kimi-k3",
+  "temperature": 0,
+  "reasoning_effort": "low",
+  "max_tokens": 4096,
+  "results": [
+    {
+      "phase": "tool_call",
+      "seconds": 1.87,
+      "tools": [
+        {
+          "name": "lookup_ticket",
+          "args": {
+            "ticket_id": "TF-1001"
+          },
+          "id": "lookup_ticket_0_caff7270",
+          "type": "tool_call"
+        }
+      ],
+      "usage": {
+        "input_tokens": 207,
+        "output_tokens": 85,
+        "total_tokens": 292,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 29
+        }
+      },
+      "finish_reason": "tool_calls",
+      "extra_fields": [
+        "refusal"
+      ]
+    },
+    {
+      "phase": "result",
+      "seconds": 1.38,
+      "answer": "Ticket TF-1001 is currently **open**.",
+      "usage": {
+        "input_tokens": 191,
+        "output_tokens": 52,
+        "total_tokens": 243,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 27
+        }
+      }
+    }
+  ]
+}

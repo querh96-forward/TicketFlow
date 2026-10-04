@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-03",
+  "model": "deepseek-v4-flash",
+  "http_status": 403,
+  "provider_error_code": "AllocationQuota.FreeTierOnly",
+  "provider_message": "Free quota exhausted. To continue accessing the model on a paid basis, please add funds or disable the \"use free tier only\" mode in the management console.",
+  "first_affected_trial": 20,
+  "affected_trials": 53,
+  "reported_tokens": 526190,
+  "diagnostic_request": {
+    "requests": 1,
+    "max_output_tokens": 1,
+    "http_status": 403
+  },
+  "automatic_paid_mode_enabled": false,
+  "note": "Raw evaluation is preserved. Scheduled 72 records completed, but this is not an effective full 72-trial model evaluation."
+}

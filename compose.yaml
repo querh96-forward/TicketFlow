@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:6010:6010"
+    environment:
+      MODEL_MODE: ${MODEL_MODE:-scripted}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://dashscope.aliyuncs.com/compatible-mode/v1}
+      LLM_MODEL: ${LLM_MODEL:-qwen3.8-max}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_REQUEST_TIMEOUT_SECONDS: ${LLM_REQUEST_TIMEOUT_SECONDS:-60}
+      LLM_MAX_OUTPUT_TOKENS: ${LLM_MAX_OUTPUT_TOKENS:-1500}
+      LLM_REASONING_EFFORT: ${LLM_REASONING_EFFORT:-}
+      DATA_DIR: /app/data
+      MAX_MODEL_CALLS: ${MAX_MODEL_CALLS:-30}
+      MAX_TOTAL_TOKENS: ${MAX_TOTAL_TOKENS:-60000}
+      RUN_TIMEOUT_SECONDS: ${RUN_TIMEOUT_SECONDS:-180}
+    volumes:
+      - ticketflow-data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import json,urllib.request; assert json.load(urllib.request.urlopen('http://localhost:6010/api/health'))['status']=='ok'"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+volumes:
+  ticketflow-data:

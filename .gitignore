@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+.pytest_cache/
+data/
+*.log
+.DS_Store
+# Local test/CI outputs; checked-in evaluation evidence lives in evals/reports/.
+/reports/

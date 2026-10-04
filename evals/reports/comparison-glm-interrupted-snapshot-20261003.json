@@ -1,0 +1,62 @@
+{
+  "complete": false,
+  "reason": "diagnostic_stopped_after_preceding_trial_total_timeout",
+  "captured_at": 1791026289.6304169,
+  "snapshots": [
+    {
+      "run_rows": [
+        {
+          "id": "4a4c68e9bead49e2b61e556c2f8254de",
+          "ticket_id": "TF-7101",
+          "status": "running",
+          "mode": "real",
+          "created": 1791026183.9972947,
+          "updated": 1791026183.9997425,
+          "ticket_version": 1,
+          "facts": "{\"account\": {\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}, \"platform\": {\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}}",
+          "feedback": "",
+          "approval": null,
+          "resume": null,
+          "answer": "",
+          "error": "",
+          "model_calls": 2,
+          "tokens": 1425
+        }
+      ],
+      "events": [
+        {
+          "id": 1,
+          "run_id": "4a4c68e9bead49e2b61e556c2f8254de",
+          "created": 1791026183.997656,
+          "kind": "queued",
+          "actor": "system",
+          "data": "{\"ticket_id\": \"TF-7101\", \"mode\": \"real\"}"
+        },
+        {
+          "id": 2,
+          "run_id": "4a4c68e9bead49e2b61e556c2f8254de",
+          "created": 1791026184.110301,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": "{\"call_id\": \"187513fc747b43abb53c8516b2193922\", \"context_messages\": 1, \"model\": \"z-ai/glm-5.3\"}"
+        },
+        {
+          "id": 3,
+          "run_id": "4a4c68e9bead49e2b61e556c2f8254de",
+          "created": 1791026282.972917,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": "{\"call_id\": \"187513fc747b43abb53c8516b2193922\", \"latency_ms\": 98863, \"tokens\": 1425, \"tools\": [\"read_ticket\"]}"
+        },
+        {
+          "id": 4,
+          "run_id": "4a4c68e9bead49e2b61e556c2f8254de",
+          "created": 1791026282.986717,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": "{\"call_id\": \"1b86ec24064a4f0d9c240adc344e4443\", \"context_messages\": 3, \"model\": \"z-ai/glm-5.3\"}"
+        }
+      ]
+    }
+  ]
+}

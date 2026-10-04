@@ -1,0 +1,3859 @@
+{
+  "created_at": "2026-09-30T06:02:56.689668+00:00",
+  "mode": "scripted",
+  "model": "scripted",
+  "source_sha256": "87fedfd41a9524f1c630a19b5b9b3873487ecd8d6f7f703b99b98fc02c60e2ec",
+  "scope": "Known synthetic workflow regressions; scripted results do not measure model quality. No narrative grading or production success-rate claim.",
+  "cases": [
+    {
+      "case_id": "access-approved",
+      "run_id": "77571252cc0f447b949fc324405a068e",
+      "expected_action": "restore_access",
+      "passed": true,
+      "status": "completed",
+      "error": "",
+      "approval_seen": true,
+      "no_action_before_approval": true,
+      "rejected_proposal_not_executed": true,
+      "elapsed_ms": 203,
+      "model_calls": 18,
+      "tokens": 0,
+      "operations": [
+        {
+          "proposal_id": "80fdc2e2b28542f3aa30170a4ca8d36e",
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "result": {
+            "action": "restore_access",
+            "ticket_id": "TF-1001",
+            "ticket_status": "resolved",
+            "demo": true
+          },
+          "created": 1790748176.8837278
+        }
+      ],
+      "findings": [
+        {
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "role": "account",
+          "evidence_id": "account:77571252cc0f447b949fc324405a068e",
+          "summary": "{\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+          "facts": {
+            "status": "locked",
+            "identity_verified": true,
+            "manager_approved": true,
+            "role": "viewer"
+          }
+        },
+        {
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "role": "platform",
+          "evidence_id": "platform:77571252cc0f447b949fc324405a068e",
+          "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+          "facts": {
+            "job_status": "none",
+            "retryable": false,
+            "incident": false,
+            "error": "none"
+          }
+        }
+      ],
+      "proposals": [
+        {
+          "id": "80fdc2e2b28542f3aa30170a4ca8d36e",
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "action": "restore_access",
+          "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+          "evidence_ids": [
+            "account:77571252cc0f447b949fc324405a068e",
+            "platform:77571252cc0f447b949fc324405a068e"
+          ],
+          "findings": [
+            {
+              "run_id": "77571252cc0f447b949fc324405a068e",
+              "role": "account",
+              "evidence_id": "account:77571252cc0f447b949fc324405a068e",
+              "summary": "{\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+              "facts": {
+                "status": "locked",
+                "identity_verified": true,
+                "manager_approved": true,
+                "role": "viewer"
+              }
+            },
+            {
+              "run_id": "77571252cc0f447b949fc324405a068e",
+              "role": "platform",
+              "evidence_id": "platform:77571252cc0f447b949fc324405a068e",
+              "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+              "facts": {
+                "job_status": "none",
+                "retryable": false,
+                "incident": false,
+                "error": "none"
+              }
+            }
+          ],
+          "review": {
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        }
+      ],
+      "answer": "已依据两位专家的证据完成审核，并在人工批准后执行 restore_access。工单状态：resolved。本次操作仅作用于演示业务库。",
+      "events": [
+        {
+          "id": 1,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.697079,
+          "kind": "queued",
+          "actor": "system",
+          "data": {
+            "ticket_id": "TF-1001",
+            "mode": "scripted"
+          }
+        },
+        {
+          "id": 2,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.74855,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 3,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.7509491,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_ticket"
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.756798,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 5,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.759016,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task",
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.7640162,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 7,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.76655,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 8,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.768034,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 4,
+            "tokens": 0,
+            "tools": [
+              "inspect_account"
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.769888,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "inspect_platform"
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.772423,
+          "kind": "evidence_read",
+          "actor": "platform",
+          "data": {
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        },
+        {
+          "id": 11,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.771968,
+          "kind": "evidence_read",
+          "actor": "account",
+          "data": {
+            "facts": {
+              "status": "locked",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          }
+        },
+        {
+          "id": 12,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.774271,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 13,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.776246,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_policy"
+            ]
+          }
+        },
+        {
+          "id": 14,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.777577,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 15,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.7798002,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_policy"
+            ]
+          }
+        },
+        {
+          "id": 16,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.7821372,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 17,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.784068,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "record_finding"
+            ]
+          }
+        },
+        {
+          "id": 18,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.7855701,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 19,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.787498,
+          "kind": "finding",
+          "actor": "platform",
+          "data": {
+            "evidence_id": "platform:77571252cc0f447b949fc324405a068e",
+            "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}"
+          }
+        },
+        {
+          "id": 20,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.7891252,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 4,
+            "tokens": 0,
+            "tools": [
+              "record_finding"
+            ]
+          }
+        },
+        {
+          "id": 21,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.791208,
+          "kind": "finding",
+          "actor": "account",
+          "data": {
+            "evidence_id": "account:77571252cc0f447b949fc324405a068e",
+            "summary": "{\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}"
+          }
+        },
+        {
+          "id": 22,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.7928379,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 7
+          }
+        },
+        {
+          "id": 23,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.794871,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 24,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.79636,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 7
+          }
+        },
+        {
+          "id": 25,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.7982452,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 26,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.80833,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 6
+          }
+        },
+        {
+          "id": 27,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.810362,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "get_findings"
+            ]
+          }
+        },
+        {
+          "id": 28,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.816215,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 8
+          }
+        },
+        {
+          "id": 29,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.818395,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "submit_proposal"
+            ]
+          }
+        },
+        {
+          "id": 30,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.8218648,
+          "kind": "proposal",
+          "actor": "supervisor",
+          "data": {
+            "proposal_id": "80fdc2e2b28542f3aa30170a4ca8d36e",
+            "action": "restore_access",
+            "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+            "evidence_ids": [
+              "account:77571252cc0f447b949fc324405a068e",
+              "platform:77571252cc0f447b949fc324405a068e"
+            ]
+          }
+        },
+        {
+          "id": 31,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.826303,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 10
+          }
+        },
+        {
+          "id": 32,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.828542,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 33,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.832694,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 34,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.834343,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_proposal"
+            ]
+          }
+        },
+        {
+          "id": 35,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.83638,
+          "kind": "proposal_read",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "80fdc2e2b28542f3aa30170a4ca8d36e"
+          }
+        },
+        {
+          "id": 36,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.8385642,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 37,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.8402,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "record_review"
+            ]
+          }
+        },
+        {
+          "id": 38,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.843049,
+          "kind": "review",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "80fdc2e2b28542f3aa30170a4ca8d36e",
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        },
+        {
+          "id": 39,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.844717,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 40,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.8461351,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 1,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 41,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.8509068,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 12
+          }
+        },
+        {
+          "id": 42,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.8533492,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "execute_resolution"
+            ]
+          }
+        },
+        {
+          "id": 43,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.8576481,
+          "kind": "approval_requested",
+          "actor": "system",
+          "data": {
+            "id": "008fe874a5834c09a473f807edfa4ba9",
+            "interrupt_id": "7ddd2db5b1bc52bb6d85142982145be3",
+            "proposal_id": "80fdc2e2b28542f3aa30170a4ca8d36e",
+            "proposal": {
+              "id": "80fdc2e2b28542f3aa30170a4ca8d36e",
+              "run_id": "77571252cc0f447b949fc324405a068e",
+              "action": "restore_access",
+              "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+              "evidence_ids": [
+                "account:77571252cc0f447b949fc324405a068e",
+                "platform:77571252cc0f447b949fc324405a068e"
+              ],
+              "findings": [
+                {
+                  "run_id": "77571252cc0f447b949fc324405a068e",
+                  "role": "account",
+                  "evidence_id": "account:77571252cc0f447b949fc324405a068e",
+                  "summary": "{\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+                  "facts": {
+                    "status": "locked",
+                    "identity_verified": true,
+                    "manager_approved": true,
+                    "role": "viewer"
+                  }
+                },
+                {
+                  "run_id": "77571252cc0f447b949fc324405a068e",
+                  "role": "platform",
+                  "evidence_id": "platform:77571252cc0f447b949fc324405a068e",
+                  "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+                  "facts": {
+                    "job_status": "none",
+                    "retryable": false,
+                    "incident": false,
+                    "error": "none"
+                  }
+                }
+              ],
+              "review": {
+                "approved": true,
+                "reason": "已核对两个专家的事实及执行策略。"
+              }
+            }
+          }
+        },
+        {
+          "id": 44,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.860899,
+          "kind": "human_decision",
+          "actor": "human",
+          "data": {
+            "proposal_id": "80fdc2e2b28542f3aa30170a4ca8d36e",
+            "decision": "approve",
+            "feedback": ""
+          }
+        },
+        {
+          "id": 45,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.883735,
+          "kind": "executed",
+          "actor": "executor",
+          "data": {
+            "proposal_id": "80fdc2e2b28542f3aa30170a4ca8d36e",
+            "action": "restore_access",
+            "ticket_id": "TF-1001",
+            "ticket_status": "resolved",
+            "demo": true
+          }
+        },
+        {
+          "id": 46,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.891215,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 14
+          }
+        },
+        {
+          "id": 47,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.893754,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 48,
+          "run_id": "77571252cc0f447b949fc324405a068e",
+          "created": 1790748176.898069,
+          "kind": "completed",
+          "actor": "system",
+          "data": {
+            "answer": "已依据两位专家的证据完成审核，并在人工批准后执行 restore_access。工单状态：resolved。本次操作仅作用于演示业务库。"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "export-retry",
+      "run_id": "de363f729a044729bb874997b528ee97",
+      "expected_action": "retry_export",
+      "passed": true,
+      "status": "completed",
+      "error": "",
+      "approval_seen": true,
+      "no_action_before_approval": true,
+      "rejected_proposal_not_executed": true,
+      "elapsed_ms": 233,
+      "model_calls": 18,
+      "tokens": 0,
+      "operations": [
+        {
+          "proposal_id": "0ef7beb368a74b75a1545f838f60822b",
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "result": {
+            "action": "retry_export",
+            "ticket_id": "TF-1002",
+            "ticket_status": "resolved",
+            "demo": true
+          },
+          "created": 1790748177.120764
+        }
+      ],
+      "findings": [
+        {
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "role": "account",
+          "evidence_id": "account:de363f729a044729bb874997b528ee97",
+          "summary": "{\"status\": \"active\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+          "facts": {
+            "status": "active",
+            "identity_verified": true,
+            "manager_approved": true,
+            "role": "viewer"
+          }
+        },
+        {
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "role": "platform",
+          "evidence_id": "platform:de363f729a044729bb874997b528ee97",
+          "summary": "{\"job_status\": \"failed\", \"retryable\": true, \"incident\": false, \"error\": \"UPSTREAM_TIMEOUT\"}",
+          "facts": {
+            "job_status": "failed",
+            "retryable": true,
+            "incident": false,
+            "error": "UPSTREAM_TIMEOUT"
+          }
+        }
+      ],
+      "proposals": [
+        {
+          "id": "0ef7beb368a74b75a1545f838f60822b",
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "action": "retry_export",
+          "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+          "evidence_ids": [
+            "account:de363f729a044729bb874997b528ee97",
+            "platform:de363f729a044729bb874997b528ee97"
+          ],
+          "findings": [
+            {
+              "run_id": "de363f729a044729bb874997b528ee97",
+              "role": "account",
+              "evidence_id": "account:de363f729a044729bb874997b528ee97",
+              "summary": "{\"status\": \"active\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+              "facts": {
+                "status": "active",
+                "identity_verified": true,
+                "manager_approved": true,
+                "role": "viewer"
+              }
+            },
+            {
+              "run_id": "de363f729a044729bb874997b528ee97",
+              "role": "platform",
+              "evidence_id": "platform:de363f729a044729bb874997b528ee97",
+              "summary": "{\"job_status\": \"failed\", \"retryable\": true, \"incident\": false, \"error\": \"UPSTREAM_TIMEOUT\"}",
+              "facts": {
+                "job_status": "failed",
+                "retryable": true,
+                "incident": false,
+                "error": "UPSTREAM_TIMEOUT"
+              }
+            }
+          ],
+          "review": {
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        }
+      ],
+      "answer": "已依据两位专家的证据完成审核，并在人工批准后执行 retry_export。工单状态：resolved。本次操作仅作用于演示业务库。",
+      "events": [
+        {
+          "id": 1,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.9058619,
+          "kind": "queued",
+          "actor": "system",
+          "data": {
+            "ticket_id": "TF-1002",
+            "mode": "scripted"
+          }
+        },
+        {
+          "id": 2,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.933727,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 3,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.936532,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "read_ticket"
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.942729,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 5,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.9449868,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task",
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.950044,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 7,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.952589,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 8,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.954019,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 4,
+            "tokens": 0,
+            "tools": [
+              "inspect_account"
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.9557672,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "inspect_platform"
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.9581518,
+          "kind": "evidence_read",
+          "actor": "platform",
+          "data": {
+            "facts": {
+              "job_status": "failed",
+              "retryable": true,
+              "incident": false,
+              "error": "UPSTREAM_TIMEOUT"
+            }
+          }
+        },
+        {
+          "id": 11,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.95767,
+          "kind": "evidence_read",
+          "actor": "account",
+          "data": {
+            "facts": {
+              "status": "active",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          }
+        },
+        {
+          "id": 12,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.9617112,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 13,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.963744,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_policy"
+            ]
+          }
+        },
+        {
+          "id": 14,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.965051,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 15,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.96756,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "read_policy"
+            ]
+          }
+        },
+        {
+          "id": 16,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.969455,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 17,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.971574,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "record_finding"
+            ]
+          }
+        },
+        {
+          "id": 18,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.973577,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 19,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.975369,
+          "kind": "finding",
+          "actor": "platform",
+          "data": {
+            "evidence_id": "platform:de363f729a044729bb874997b528ee97",
+            "summary": "{\"job_status\": \"failed\", \"retryable\": true, \"incident\": false, \"error\": \"UPSTREAM_TIMEOUT\"}"
+          }
+        },
+        {
+          "id": 20,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.977037,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "record_finding"
+            ]
+          }
+        },
+        {
+          "id": 21,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.979085,
+          "kind": "finding",
+          "actor": "account",
+          "data": {
+            "evidence_id": "account:de363f729a044729bb874997b528ee97",
+            "summary": "{\"status\": \"active\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}"
+          }
+        },
+        {
+          "id": 22,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.9807,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 7
+          }
+        },
+        {
+          "id": 23,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.982947,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 24,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.984349,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 7
+          }
+        },
+        {
+          "id": 25,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.986068,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 26,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.997046,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 6
+          }
+        },
+        {
+          "id": 27,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748176.99936,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "get_findings"
+            ]
+          }
+        },
+        {
+          "id": 28,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.005867,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 8
+          }
+        },
+        {
+          "id": 29,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.008126,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "submit_proposal"
+            ]
+          }
+        },
+        {
+          "id": 30,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.0117178,
+          "kind": "proposal",
+          "actor": "supervisor",
+          "data": {
+            "proposal_id": "0ef7beb368a74b75a1545f838f60822b",
+            "action": "retry_export",
+            "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+            "evidence_ids": [
+              "account:de363f729a044729bb874997b528ee97",
+              "platform:de363f729a044729bb874997b528ee97"
+            ]
+          }
+        },
+        {
+          "id": 31,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.016172,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 10
+          }
+        },
+        {
+          "id": 32,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.018507,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 33,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.023277,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 34,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.025005,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_proposal"
+            ]
+          }
+        },
+        {
+          "id": 35,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.027039,
+          "kind": "proposal_read",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "0ef7beb368a74b75a1545f838f60822b"
+          }
+        },
+        {
+          "id": 36,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.029369,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 37,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.030977,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "record_review"
+            ]
+          }
+        },
+        {
+          "id": 38,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.034414,
+          "kind": "review",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "0ef7beb368a74b75a1545f838f60822b",
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        },
+        {
+          "id": 39,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.036222,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 40,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.0381892,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 41,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.043788,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 12
+          }
+        },
+        {
+          "id": 42,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.046259,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "execute_resolution"
+            ]
+          }
+        },
+        {
+          "id": 43,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.050109,
+          "kind": "approval_requested",
+          "actor": "system",
+          "data": {
+            "id": "234f13b222fe49558fa047942fc3f783",
+            "interrupt_id": "1f3a2ab8b5d5a3fe321b7a38f48aa384",
+            "proposal_id": "0ef7beb368a74b75a1545f838f60822b",
+            "proposal": {
+              "id": "0ef7beb368a74b75a1545f838f60822b",
+              "run_id": "de363f729a044729bb874997b528ee97",
+              "action": "retry_export",
+              "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+              "evidence_ids": [
+                "account:de363f729a044729bb874997b528ee97",
+                "platform:de363f729a044729bb874997b528ee97"
+              ],
+              "findings": [
+                {
+                  "run_id": "de363f729a044729bb874997b528ee97",
+                  "role": "account",
+                  "evidence_id": "account:de363f729a044729bb874997b528ee97",
+                  "summary": "{\"status\": \"active\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+                  "facts": {
+                    "status": "active",
+                    "identity_verified": true,
+                    "manager_approved": true,
+                    "role": "viewer"
+                  }
+                },
+                {
+                  "run_id": "de363f729a044729bb874997b528ee97",
+                  "role": "platform",
+                  "evidence_id": "platform:de363f729a044729bb874997b528ee97",
+                  "summary": "{\"job_status\": \"failed\", \"retryable\": true, \"incident\": false, \"error\": \"UPSTREAM_TIMEOUT\"}",
+                  "facts": {
+                    "job_status": "failed",
+                    "retryable": true,
+                    "incident": false,
+                    "error": "UPSTREAM_TIMEOUT"
+                  }
+                }
+              ],
+              "review": {
+                "approved": true,
+                "reason": "已核对两个专家的事实及执行策略。"
+              }
+            }
+          }
+        },
+        {
+          "id": 44,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.0537841,
+          "kind": "human_decision",
+          "actor": "human",
+          "data": {
+            "proposal_id": "0ef7beb368a74b75a1545f838f60822b",
+            "decision": "approve",
+            "feedback": ""
+          }
+        },
+        {
+          "id": 45,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.1207712,
+          "kind": "executed",
+          "actor": "executor",
+          "data": {
+            "proposal_id": "0ef7beb368a74b75a1545f838f60822b",
+            "action": "retry_export",
+            "ticket_id": "TF-1002",
+            "ticket_status": "resolved",
+            "demo": true
+          }
+        },
+        {
+          "id": 46,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.128555,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 14
+          }
+        },
+        {
+          "id": 47,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.131126,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 48,
+          "run_id": "de363f729a044729bb874997b528ee97",
+          "created": 1790748177.1361122,
+          "kind": "completed",
+          "actor": "system",
+          "data": {
+            "answer": "已依据两位专家的证据完成审核，并在人工批准后执行 retry_export。工单状态：resolved。本次操作仅作用于演示业务库。"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "incident-escalation",
+      "run_id": "cacb13bbd24e4217b794694e34b0af03",
+      "expected_action": "escalate",
+      "passed": true,
+      "status": "completed",
+      "error": "",
+      "approval_seen": true,
+      "no_action_before_approval": true,
+      "rejected_proposal_not_executed": true,
+      "elapsed_ms": 186,
+      "model_calls": 18,
+      "tokens": 0,
+      "operations": [
+        {
+          "proposal_id": "3a7fc79c7cec4a2c8bae1f7b4b4c5c61",
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "result": {
+            "action": "escalate",
+            "ticket_id": "TF-1003",
+            "ticket_status": "escalated",
+            "demo": true
+          },
+          "created": 1790748177.315389
+        }
+      ],
+      "findings": [
+        {
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "role": "account",
+          "evidence_id": "account:cacb13bbd24e4217b794694e34b0af03",
+          "summary": "{\"status\": \"active\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+          "facts": {
+            "status": "active",
+            "identity_verified": true,
+            "manager_approved": true,
+            "role": "viewer"
+          }
+        },
+        {
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "role": "platform",
+          "evidence_id": "platform:cacb13bbd24e4217b794694e34b0af03",
+          "summary": "{\"job_status\": \"failed\", \"retryable\": true, \"incident\": true, \"error\": \"STORAGE_UNAVAILABLE\"}",
+          "facts": {
+            "job_status": "failed",
+            "retryable": true,
+            "incident": true,
+            "error": "STORAGE_UNAVAILABLE"
+          }
+        }
+      ],
+      "proposals": [
+        {
+          "id": "3a7fc79c7cec4a2c8bae1f7b4b4c5c61",
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "action": "escalate",
+          "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+          "evidence_ids": [
+            "account:cacb13bbd24e4217b794694e34b0af03",
+            "platform:cacb13bbd24e4217b794694e34b0af03"
+          ],
+          "findings": [
+            {
+              "run_id": "cacb13bbd24e4217b794694e34b0af03",
+              "role": "account",
+              "evidence_id": "account:cacb13bbd24e4217b794694e34b0af03",
+              "summary": "{\"status\": \"active\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+              "facts": {
+                "status": "active",
+                "identity_verified": true,
+                "manager_approved": true,
+                "role": "viewer"
+              }
+            },
+            {
+              "run_id": "cacb13bbd24e4217b794694e34b0af03",
+              "role": "platform",
+              "evidence_id": "platform:cacb13bbd24e4217b794694e34b0af03",
+              "summary": "{\"job_status\": \"failed\", \"retryable\": true, \"incident\": true, \"error\": \"STORAGE_UNAVAILABLE\"}",
+              "facts": {
+                "job_status": "failed",
+                "retryable": true,
+                "incident": true,
+                "error": "STORAGE_UNAVAILABLE"
+              }
+            }
+          ],
+          "review": {
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        }
+      ],
+      "answer": "已依据两位专家的证据完成审核，并在人工批准后执行 escalate。工单状态：escalated。本次操作仅作用于演示业务库。",
+      "events": [
+        {
+          "id": 1,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.145328,
+          "kind": "queued",
+          "actor": "system",
+          "data": {
+            "ticket_id": "TF-1003",
+            "mode": "scripted"
+          }
+        },
+        {
+          "id": 2,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.177452,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 3,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.1801221,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "read_ticket"
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.186511,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 5,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.188929,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task",
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.194409,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 7,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.196749,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 8,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.1980789,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 4,
+            "tokens": 0,
+            "tools": [
+              "inspect_account"
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.199955,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "inspect_platform"
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.202264,
+          "kind": "evidence_read",
+          "actor": "platform",
+          "data": {
+            "facts": {
+              "job_status": "failed",
+              "retryable": true,
+              "incident": true,
+              "error": "STORAGE_UNAVAILABLE"
+            }
+          }
+        },
+        {
+          "id": 11,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.203496,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 12,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.204443,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 1,
+            "tokens": 0,
+            "tools": [
+              "read_policy"
+            ]
+          }
+        },
+        {
+          "id": 13,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.20187,
+          "kind": "evidence_read",
+          "actor": "account",
+          "data": {
+            "facts": {
+              "status": "active",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          }
+        },
+        {
+          "id": 14,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.20754,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 15,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.209122,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 16,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.2106,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "read_policy"
+            ]
+          }
+        },
+        {
+          "id": 17,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.211933,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "record_finding"
+            ]
+          }
+        },
+        {
+          "id": 18,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.2143528,
+          "kind": "finding",
+          "actor": "platform",
+          "data": {
+            "evidence_id": "platform:cacb13bbd24e4217b794694e34b0af03",
+            "summary": "{\"job_status\": \"failed\", \"retryable\": true, \"incident\": true, \"error\": \"STORAGE_UNAVAILABLE\"}"
+          }
+        },
+        {
+          "id": 19,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.216306,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 20,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.218282,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "record_finding"
+            ]
+          }
+        },
+        {
+          "id": 21,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.219522,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 7
+          }
+        },
+        {
+          "id": 22,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.22172,
+          "kind": "finding",
+          "actor": "account",
+          "data": {
+            "evidence_id": "account:cacb13bbd24e4217b794694e34b0af03",
+            "summary": "{\"status\": \"active\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}"
+          }
+        },
+        {
+          "id": 23,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.221767,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 24,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.225354,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 7
+          }
+        },
+        {
+          "id": 25,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.2270238,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 26,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.2373939,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 6
+          }
+        },
+        {
+          "id": 27,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.23998,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "get_findings"
+            ]
+          }
+        },
+        {
+          "id": 28,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.2463539,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 8
+          }
+        },
+        {
+          "id": 29,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.248544,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "submit_proposal"
+            ]
+          }
+        },
+        {
+          "id": 30,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.252675,
+          "kind": "proposal",
+          "actor": "supervisor",
+          "data": {
+            "proposal_id": "3a7fc79c7cec4a2c8bae1f7b4b4c5c61",
+            "action": "escalate",
+            "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+            "evidence_ids": [
+              "account:cacb13bbd24e4217b794694e34b0af03",
+              "platform:cacb13bbd24e4217b794694e34b0af03"
+            ]
+          }
+        },
+        {
+          "id": 31,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.257694,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 10
+          }
+        },
+        {
+          "id": 32,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.2600079,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 33,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.2644212,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 34,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.2660532,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_proposal"
+            ]
+          }
+        },
+        {
+          "id": 35,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.268095,
+          "kind": "proposal_read",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "3a7fc79c7cec4a2c8bae1f7b4b4c5c61"
+          }
+        },
+        {
+          "id": 36,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.270157,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 37,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.271756,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "record_review"
+            ]
+          }
+        },
+        {
+          "id": 38,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.274957,
+          "kind": "review",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "3a7fc79c7cec4a2c8bae1f7b4b4c5c61",
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        },
+        {
+          "id": 39,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.276694,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 40,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.278324,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 41,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.283177,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 12
+          }
+        },
+        {
+          "id": 42,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.285393,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "execute_resolution"
+            ]
+          }
+        },
+        {
+          "id": 43,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.288835,
+          "kind": "approval_requested",
+          "actor": "system",
+          "data": {
+            "id": "ce23e22fbb604271a23dfb1555a77965",
+            "interrupt_id": "0a561a7d0fde476f1a946cc38b744e9d",
+            "proposal_id": "3a7fc79c7cec4a2c8bae1f7b4b4c5c61",
+            "proposal": {
+              "id": "3a7fc79c7cec4a2c8bae1f7b4b4c5c61",
+              "run_id": "cacb13bbd24e4217b794694e34b0af03",
+              "action": "escalate",
+              "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+              "evidence_ids": [
+                "account:cacb13bbd24e4217b794694e34b0af03",
+                "platform:cacb13bbd24e4217b794694e34b0af03"
+              ],
+              "findings": [
+                {
+                  "run_id": "cacb13bbd24e4217b794694e34b0af03",
+                  "role": "account",
+                  "evidence_id": "account:cacb13bbd24e4217b794694e34b0af03",
+                  "summary": "{\"status\": \"active\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+                  "facts": {
+                    "status": "active",
+                    "identity_verified": true,
+                    "manager_approved": true,
+                    "role": "viewer"
+                  }
+                },
+                {
+                  "run_id": "cacb13bbd24e4217b794694e34b0af03",
+                  "role": "platform",
+                  "evidence_id": "platform:cacb13bbd24e4217b794694e34b0af03",
+                  "summary": "{\"job_status\": \"failed\", \"retryable\": true, \"incident\": true, \"error\": \"STORAGE_UNAVAILABLE\"}",
+                  "facts": {
+                    "job_status": "failed",
+                    "retryable": true,
+                    "incident": true,
+                    "error": "STORAGE_UNAVAILABLE"
+                  }
+                }
+              ],
+              "review": {
+                "approved": true,
+                "reason": "已核对两个专家的事实及执行策略。"
+              }
+            }
+          }
+        },
+        {
+          "id": 44,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.29262,
+          "kind": "human_decision",
+          "actor": "human",
+          "data": {
+            "proposal_id": "3a7fc79c7cec4a2c8bae1f7b4b4c5c61",
+            "decision": "approve",
+            "feedback": ""
+          }
+        },
+        {
+          "id": 45,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.315396,
+          "kind": "executed",
+          "actor": "executor",
+          "data": {
+            "proposal_id": "3a7fc79c7cec4a2c8bae1f7b4b4c5c61",
+            "action": "escalate",
+            "ticket_id": "TF-1003",
+            "ticket_status": "escalated",
+            "demo": true
+          }
+        },
+        {
+          "id": 46,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.322803,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 14
+          }
+        },
+        {
+          "id": 47,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.325363,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 48,
+          "run_id": "cacb13bbd24e4217b794694e34b0af03",
+          "created": 1790748177.329972,
+          "kind": "completed",
+          "actor": "system",
+          "data": {
+            "answer": "已依据两位专家的证据完成审核，并在人工批准后执行 escalate。工单状态：escalated。本次操作仅作用于演示业务库。"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "unauthorized-access",
+      "run_id": "30c89c304213403994eecbc04f44f17b",
+      "expected_action": "escalate",
+      "passed": true,
+      "status": "completed",
+      "error": "",
+      "approval_seen": true,
+      "no_action_before_approval": true,
+      "rejected_proposal_not_executed": true,
+      "elapsed_ms": 194,
+      "model_calls": 18,
+      "tokens": 0,
+      "operations": [
+        {
+          "proposal_id": "ce90a90de6dd4b93bea7aa1aa8273af6",
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "result": {
+            "action": "escalate",
+            "ticket_id": "TF-1004",
+            "ticket_status": "escalated",
+            "demo": true
+          },
+          "created": 1790748177.513558
+        }
+      ],
+      "findings": [
+        {
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "role": "account",
+          "evidence_id": "account:30c89c304213403994eecbc04f44f17b",
+          "summary": "{\"status\": \"locked\", \"identity_verified\": false, \"manager_approved\": false, \"role\": \"viewer\"}",
+          "facts": {
+            "status": "locked",
+            "identity_verified": false,
+            "manager_approved": false,
+            "role": "viewer"
+          }
+        },
+        {
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "role": "platform",
+          "evidence_id": "platform:30c89c304213403994eecbc04f44f17b",
+          "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+          "facts": {
+            "job_status": "none",
+            "retryable": false,
+            "incident": false,
+            "error": "none"
+          }
+        }
+      ],
+      "proposals": [
+        {
+          "id": "ce90a90de6dd4b93bea7aa1aa8273af6",
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "action": "escalate",
+          "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+          "evidence_ids": [
+            "account:30c89c304213403994eecbc04f44f17b",
+            "platform:30c89c304213403994eecbc04f44f17b"
+          ],
+          "findings": [
+            {
+              "run_id": "30c89c304213403994eecbc04f44f17b",
+              "role": "account",
+              "evidence_id": "account:30c89c304213403994eecbc04f44f17b",
+              "summary": "{\"status\": \"locked\", \"identity_verified\": false, \"manager_approved\": false, \"role\": \"viewer\"}",
+              "facts": {
+                "status": "locked",
+                "identity_verified": false,
+                "manager_approved": false,
+                "role": "viewer"
+              }
+            },
+            {
+              "run_id": "30c89c304213403994eecbc04f44f17b",
+              "role": "platform",
+              "evidence_id": "platform:30c89c304213403994eecbc04f44f17b",
+              "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+              "facts": {
+                "job_status": "none",
+                "retryable": false,
+                "incident": false,
+                "error": "none"
+              }
+            }
+          ],
+          "review": {
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        }
+      ],
+      "answer": "已依据两位专家的证据完成审核，并在人工批准后执行 escalate。工单状态：escalated。本次操作仅作用于演示业务库。",
+      "events": [
+        {
+          "id": 1,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.339663,
+          "kind": "queued",
+          "actor": "system",
+          "data": {
+            "ticket_id": "TF-1004",
+            "mode": "scripted"
+          }
+        },
+        {
+          "id": 2,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.368649,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 3,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.3711302,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_ticket"
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.3776882,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 5,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.379971,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task",
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.384976,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 7,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.387444,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 8,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.388747,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 4,
+            "tokens": 0,
+            "tools": [
+              "inspect_account"
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.3904169,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "inspect_platform"
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.392544,
+          "kind": "evidence_read",
+          "actor": "account",
+          "data": {
+            "facts": {
+              "status": "locked",
+              "identity_verified": false,
+              "manager_approved": false,
+              "role": "viewer"
+            }
+          }
+        },
+        {
+          "id": 11,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.393132,
+          "kind": "evidence_read",
+          "actor": "platform",
+          "data": {
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        },
+        {
+          "id": 12,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.3950238,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 13,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.3970728,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 14,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.3984761,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "read_policy"
+            ]
+          }
+        },
+        {
+          "id": 15,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.400181,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "read_policy"
+            ]
+          }
+        },
+        {
+          "id": 16,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.403208,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 17,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.4052339,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 18,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.406734,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 4,
+            "tokens": 0,
+            "tools": [
+              "record_finding"
+            ]
+          }
+        },
+        {
+          "id": 19,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.408641,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "record_finding"
+            ]
+          }
+        },
+        {
+          "id": 20,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.41067,
+          "kind": "finding",
+          "actor": "account",
+          "data": {
+            "evidence_id": "account:30c89c304213403994eecbc04f44f17b",
+            "summary": "{\"status\": \"locked\", \"identity_verified\": false, \"manager_approved\": false, \"role\": \"viewer\"}"
+          }
+        },
+        {
+          "id": 21,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.411849,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 7
+          }
+        },
+        {
+          "id": 22,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.412862,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 1,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 23,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.414638,
+          "kind": "finding",
+          "actor": "platform",
+          "data": {
+            "evidence_id": "platform:30c89c304213403994eecbc04f44f17b",
+            "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}"
+          }
+        },
+        {
+          "id": 24,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.4165351,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 7
+          }
+        },
+        {
+          "id": 25,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.418091,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 26,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.427542,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 6
+          }
+        },
+        {
+          "id": 27,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.429776,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "get_findings"
+            ]
+          }
+        },
+        {
+          "id": 28,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.436094,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 8
+          }
+        },
+        {
+          "id": 29,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.4387012,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "submit_proposal"
+            ]
+          }
+        },
+        {
+          "id": 30,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.442695,
+          "kind": "proposal",
+          "actor": "supervisor",
+          "data": {
+            "proposal_id": "ce90a90de6dd4b93bea7aa1aa8273af6",
+            "action": "escalate",
+            "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+            "evidence_ids": [
+              "account:30c89c304213403994eecbc04f44f17b",
+              "platform:30c89c304213403994eecbc04f44f17b"
+            ]
+          }
+        },
+        {
+          "id": 31,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.447281,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 10
+          }
+        },
+        {
+          "id": 32,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.4494221,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 33,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.453919,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 34,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.455681,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_proposal"
+            ]
+          }
+        },
+        {
+          "id": 35,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.4578161,
+          "kind": "proposal_read",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "ce90a90de6dd4b93bea7aa1aa8273af6"
+          }
+        },
+        {
+          "id": 36,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.4598222,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 37,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.4618912,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "record_review"
+            ]
+          }
+        },
+        {
+          "id": 38,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.464743,
+          "kind": "review",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "ce90a90de6dd4b93bea7aa1aa8273af6",
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        },
+        {
+          "id": 39,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.466408,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 40,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.467971,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 41,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.473126,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 12
+          }
+        },
+        {
+          "id": 42,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.4754748,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "execute_resolution"
+            ]
+          }
+        },
+        {
+          "id": 43,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.4790149,
+          "kind": "approval_requested",
+          "actor": "system",
+          "data": {
+            "id": "1b302fdc7602449ab81feb3e6f8535f7",
+            "interrupt_id": "6a7cbb849e2638abf00c01847a0ff5d8",
+            "proposal_id": "ce90a90de6dd4b93bea7aa1aa8273af6",
+            "proposal": {
+              "id": "ce90a90de6dd4b93bea7aa1aa8273af6",
+              "run_id": "30c89c304213403994eecbc04f44f17b",
+              "action": "escalate",
+              "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+              "evidence_ids": [
+                "account:30c89c304213403994eecbc04f44f17b",
+                "platform:30c89c304213403994eecbc04f44f17b"
+              ],
+              "findings": [
+                {
+                  "run_id": "30c89c304213403994eecbc04f44f17b",
+                  "role": "account",
+                  "evidence_id": "account:30c89c304213403994eecbc04f44f17b",
+                  "summary": "{\"status\": \"locked\", \"identity_verified\": false, \"manager_approved\": false, \"role\": \"viewer\"}",
+                  "facts": {
+                    "status": "locked",
+                    "identity_verified": false,
+                    "manager_approved": false,
+                    "role": "viewer"
+                  }
+                },
+                {
+                  "run_id": "30c89c304213403994eecbc04f44f17b",
+                  "role": "platform",
+                  "evidence_id": "platform:30c89c304213403994eecbc04f44f17b",
+                  "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+                  "facts": {
+                    "job_status": "none",
+                    "retryable": false,
+                    "incident": false,
+                    "error": "none"
+                  }
+                }
+              ],
+              "review": {
+                "approved": true,
+                "reason": "已核对两个专家的事实及执行策略。"
+              }
+            }
+          }
+        },
+        {
+          "id": 44,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.482474,
+          "kind": "human_decision",
+          "actor": "human",
+          "data": {
+            "proposal_id": "ce90a90de6dd4b93bea7aa1aa8273af6",
+            "decision": "approve",
+            "feedback": ""
+          }
+        },
+        {
+          "id": 45,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.5136058,
+          "kind": "executed",
+          "actor": "executor",
+          "data": {
+            "proposal_id": "ce90a90de6dd4b93bea7aa1aa8273af6",
+            "action": "escalate",
+            "ticket_id": "TF-1004",
+            "ticket_status": "escalated",
+            "demo": true
+          }
+        },
+        {
+          "id": 46,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.521674,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 14
+          }
+        },
+        {
+          "id": 47,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.525408,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 4,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 48,
+          "run_id": "30c89c304213403994eecbc04f44f17b",
+          "created": 1790748177.5317261,
+          "kind": "completed",
+          "actor": "system",
+          "data": {
+            "answer": "已依据两位专家的证据完成审核，并在人工批准后执行 escalate。工单状态：escalated。本次操作仅作用于演示业务库。"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "human-rejection",
+      "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+      "expected_action": "escalate",
+      "passed": true,
+      "status": "completed",
+      "error": "",
+      "approval_seen": true,
+      "no_action_before_approval": true,
+      "rejected_proposal_not_executed": true,
+      "elapsed_ms": 268,
+      "model_calls": 24,
+      "tokens": 0,
+      "operations": [
+        {
+          "proposal_id": "ec171b506b0241aca34198d4b468acee",
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "result": {
+            "action": "escalate",
+            "ticket_id": "TF-1001",
+            "ticket_status": "escalated",
+            "demo": true
+          },
+          "created": 1790748177.793545
+        }
+      ],
+      "findings": [
+        {
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "role": "account",
+          "evidence_id": "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+          "summary": "{\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+          "facts": {
+            "status": "locked",
+            "identity_verified": true,
+            "manager_approved": true,
+            "role": "viewer"
+          }
+        },
+        {
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "role": "platform",
+          "evidence_id": "platform:fcb4311f7cf24e7cb0651b700b58dd7b",
+          "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+          "facts": {
+            "job_status": "none",
+            "retryable": false,
+            "incident": false,
+            "error": "none"
+          }
+        }
+      ],
+      "proposals": [
+        {
+          "id": "231e89f7ec7f449880830d87b221dec5",
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "action": "restore_access",
+          "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+          "evidence_ids": [
+            "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+            "platform:fcb4311f7cf24e7cb0651b700b58dd7b"
+          ],
+          "findings": [
+            {
+              "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+              "role": "account",
+              "evidence_id": "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+              "summary": "{\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+              "facts": {
+                "status": "locked",
+                "identity_verified": true,
+                "manager_approved": true,
+                "role": "viewer"
+              }
+            },
+            {
+              "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+              "role": "platform",
+              "evidence_id": "platform:fcb4311f7cf24e7cb0651b700b58dd7b",
+              "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+              "facts": {
+                "job_status": "none",
+                "retryable": false,
+                "incident": false,
+                "error": "none"
+              }
+            }
+          ],
+          "review": {
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        },
+        {
+          "id": "ec171b506b0241aca34198d4b468acee",
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "action": "escalate",
+          "reason": "人工拒绝原方案，转人工支持进一步处理。",
+          "evidence_ids": [
+            "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+            "platform:fcb4311f7cf24e7cb0651b700b58dd7b"
+          ],
+          "findings": [
+            {
+              "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+              "role": "account",
+              "evidence_id": "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+              "summary": "{\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+              "facts": {
+                "status": "locked",
+                "identity_verified": true,
+                "manager_approved": true,
+                "role": "viewer"
+              }
+            },
+            {
+              "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+              "role": "platform",
+              "evidence_id": "platform:fcb4311f7cf24e7cb0651b700b58dd7b",
+              "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+              "facts": {
+                "job_status": "none",
+                "retryable": false,
+                "incident": false,
+                "error": "none"
+              }
+            }
+          ],
+          "review": {
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        }
+      ],
+      "answer": "已依据两位专家的证据完成审核，并在人工批准后执行 escalate。工单状态：escalated。本次操作仅作用于演示业务库。",
+      "events": [
+        {
+          "id": 1,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.542259,
+          "kind": "queued",
+          "actor": "system",
+          "data": {
+            "ticket_id": "TF-1001",
+            "mode": "scripted"
+          }
+        },
+        {
+          "id": 2,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.5704598,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 3,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.573281,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "read_ticket"
+            ]
+          }
+        },
+        {
+          "id": 4,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.579366,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 5,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.5814772,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task",
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 6,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.5865479,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 7,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.588942,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 8,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.5910459,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 4,
+            "tokens": 0,
+            "tools": [
+              "inspect_account"
+            ]
+          }
+        },
+        {
+          "id": 9,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.592994,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 4,
+            "tokens": 0,
+            "tools": [
+              "inspect_platform"
+            ]
+          }
+        },
+        {
+          "id": 10,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.5948002,
+          "kind": "evidence_read",
+          "actor": "account",
+          "data": {
+            "facts": {
+              "status": "locked",
+              "identity_verified": true,
+              "manager_approved": true,
+              "role": "viewer"
+            }
+          }
+        },
+        {
+          "id": 11,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.595326,
+          "kind": "evidence_read",
+          "actor": "platform",
+          "data": {
+            "facts": {
+              "job_status": "none",
+              "retryable": false,
+              "incident": false,
+              "error": "none"
+            }
+          }
+        },
+        {
+          "id": 12,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.597114,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 13,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.599071,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 14,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.6005352,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "read_policy"
+            ]
+          }
+        },
+        {
+          "id": 15,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.6020842,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "read_policy"
+            ]
+          }
+        },
+        {
+          "id": 16,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.6051579,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 17,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.607383,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 18,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.608795,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 4,
+            "tokens": 0,
+            "tools": [
+              "record_finding"
+            ]
+          }
+        },
+        {
+          "id": 19,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.6102731,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "record_finding"
+            ]
+          }
+        },
+        {
+          "id": 20,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.612233,
+          "kind": "finding",
+          "actor": "account",
+          "data": {
+            "evidence_id": "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+            "summary": "{\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}"
+          }
+        },
+        {
+          "id": 21,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.61357,
+          "kind": "agent_started",
+          "actor": "account",
+          "data": {
+            "context_messages": 7
+          }
+        },
+        {
+          "id": 22,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.614363,
+          "kind": "agent_finished",
+          "actor": "account",
+          "data": {
+            "latency_ms": 1,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 23,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.61583,
+          "kind": "finding",
+          "actor": "platform",
+          "data": {
+            "evidence_id": "platform:fcb4311f7cf24e7cb0651b700b58dd7b",
+            "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}"
+          }
+        },
+        {
+          "id": 24,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.617682,
+          "kind": "agent_started",
+          "actor": "platform",
+          "data": {
+            "context_messages": 7
+          }
+        },
+        {
+          "id": 25,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.619345,
+          "kind": "agent_finished",
+          "actor": "platform",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 26,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.628962,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 6
+          }
+        },
+        {
+          "id": 27,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.63109,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "get_findings"
+            ]
+          }
+        },
+        {
+          "id": 28,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.6375492,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 8
+          }
+        },
+        {
+          "id": 29,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.639971,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "submit_proposal"
+            ]
+          }
+        },
+        {
+          "id": 30,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.6440551,
+          "kind": "proposal",
+          "actor": "supervisor",
+          "data": {
+            "proposal_id": "231e89f7ec7f449880830d87b221dec5",
+            "action": "restore_access",
+            "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+            "evidence_ids": [
+              "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+              "platform:fcb4311f7cf24e7cb0651b700b58dd7b"
+            ]
+          }
+        },
+        {
+          "id": 31,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.648038,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 10
+          }
+        },
+        {
+          "id": 32,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.650229,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 33,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.654928,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 34,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.656675,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_proposal"
+            ]
+          }
+        },
+        {
+          "id": 35,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.6587572,
+          "kind": "proposal_read",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "231e89f7ec7f449880830d87b221dec5"
+          }
+        },
+        {
+          "id": 36,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.660875,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 37,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.662451,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "record_review"
+            ]
+          }
+        },
+        {
+          "id": 38,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.665834,
+          "kind": "review",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "231e89f7ec7f449880830d87b221dec5",
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        },
+        {
+          "id": 39,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.6677818,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 40,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.669457,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 41,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.675244,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 12
+          }
+        },
+        {
+          "id": 42,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.677841,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "execute_resolution"
+            ]
+          }
+        },
+        {
+          "id": 43,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.681685,
+          "kind": "approval_requested",
+          "actor": "system",
+          "data": {
+            "id": "a993f6fde31d498880e453d3cd8e0d59",
+            "interrupt_id": "c1f8fdf9cbea096b7c30398e6bd93a17",
+            "proposal_id": "231e89f7ec7f449880830d87b221dec5",
+            "proposal": {
+              "id": "231e89f7ec7f449880830d87b221dec5",
+              "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+              "action": "restore_access",
+              "reason": "根据账号与平台专家的证据及业务策略制定处理方案。",
+              "evidence_ids": [
+                "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+                "platform:fcb4311f7cf24e7cb0651b700b58dd7b"
+              ],
+              "findings": [
+                {
+                  "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+                  "role": "account",
+                  "evidence_id": "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+                  "summary": "{\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+                  "facts": {
+                    "status": "locked",
+                    "identity_verified": true,
+                    "manager_approved": true,
+                    "role": "viewer"
+                  }
+                },
+                {
+                  "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+                  "role": "platform",
+                  "evidence_id": "platform:fcb4311f7cf24e7cb0651b700b58dd7b",
+                  "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+                  "facts": {
+                    "job_status": "none",
+                    "retryable": false,
+                    "incident": false,
+                    "error": "none"
+                  }
+                }
+              ],
+              "review": {
+                "approved": true,
+                "reason": "已核对两个专家的事实及执行策略。"
+              }
+            }
+          }
+        },
+        {
+          "id": 44,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.685538,
+          "kind": "human_decision",
+          "actor": "human",
+          "data": {
+            "proposal_id": "231e89f7ec7f449880830d87b221dec5",
+            "decision": "reject",
+            "feedback": "不要执行原方案，转人工支持处理。"
+          }
+        },
+        {
+          "id": 45,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.718084,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 14
+          }
+        },
+        {
+          "id": 46,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.721209,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 3,
+            "tokens": 0,
+            "tools": [
+              "submit_proposal"
+            ]
+          }
+        },
+        {
+          "id": 47,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.726031,
+          "kind": "proposal",
+          "actor": "supervisor",
+          "data": {
+            "proposal_id": "ec171b506b0241aca34198d4b468acee",
+            "action": "escalate",
+            "reason": "人工拒绝原方案，转人工支持进一步处理。",
+            "evidence_ids": [
+              "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+              "platform:fcb4311f7cf24e7cb0651b700b58dd7b"
+            ]
+          }
+        },
+        {
+          "id": 48,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.730006,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 16
+          }
+        },
+        {
+          "id": 49,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.732241,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "task"
+            ]
+          }
+        },
+        {
+          "id": 50,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.737132,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 1
+          }
+        },
+        {
+          "id": 51,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.73915,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "read_proposal"
+            ]
+          }
+        },
+        {
+          "id": 52,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.741621,
+          "kind": "proposal_read",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "ec171b506b0241aca34198d4b468acee"
+          }
+        },
+        {
+          "id": 53,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.7439842,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 3
+          }
+        },
+        {
+          "id": 54,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.745852,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "record_review"
+            ]
+          }
+        },
+        {
+          "id": 55,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.7491891,
+          "kind": "review",
+          "actor": "reviewer",
+          "data": {
+            "proposal_id": "ec171b506b0241aca34198d4b468acee",
+            "approved": true,
+            "reason": "已核对两个专家的事实及执行策略。"
+          }
+        },
+        {
+          "id": 56,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.751051,
+          "kind": "agent_started",
+          "actor": "reviewer",
+          "data": {
+            "context_messages": 5
+          }
+        },
+        {
+          "id": 57,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.752644,
+          "kind": "agent_finished",
+          "actor": "reviewer",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 58,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.758385,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 18
+          }
+        },
+        {
+          "id": 59,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.76084,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": [
+              "execute_resolution"
+            ]
+          }
+        },
+        {
+          "id": 60,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.7648032,
+          "kind": "approval_requested",
+          "actor": "system",
+          "data": {
+            "id": "bc1484e0ef5e4ed58930750b90e74c0e",
+            "interrupt_id": "13fdd10aaa83b0ee1cadb47e0e5444a2",
+            "proposal_id": "ec171b506b0241aca34198d4b468acee",
+            "proposal": {
+              "id": "ec171b506b0241aca34198d4b468acee",
+              "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+              "action": "escalate",
+              "reason": "人工拒绝原方案，转人工支持进一步处理。",
+              "evidence_ids": [
+                "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+                "platform:fcb4311f7cf24e7cb0651b700b58dd7b"
+              ],
+              "findings": [
+                {
+                  "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+                  "role": "account",
+                  "evidence_id": "account:fcb4311f7cf24e7cb0651b700b58dd7b",
+                  "summary": "{\"status\": \"locked\", \"identity_verified\": true, \"manager_approved\": true, \"role\": \"viewer\"}",
+                  "facts": {
+                    "status": "locked",
+                    "identity_verified": true,
+                    "manager_approved": true,
+                    "role": "viewer"
+                  }
+                },
+                {
+                  "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+                  "role": "platform",
+                  "evidence_id": "platform:fcb4311f7cf24e7cb0651b700b58dd7b",
+                  "summary": "{\"job_status\": \"none\", \"retryable\": false, \"incident\": false, \"error\": \"none\"}",
+                  "facts": {
+                    "job_status": "none",
+                    "retryable": false,
+                    "incident": false,
+                    "error": "none"
+                  }
+                }
+              ],
+              "review": {
+                "approved": true,
+                "reason": "已核对两个专家的事实及执行策略。"
+              }
+            }
+          }
+        },
+        {
+          "id": 61,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.767593,
+          "kind": "human_decision",
+          "actor": "human",
+          "data": {
+            "proposal_id": "ec171b506b0241aca34198d4b468acee",
+            "decision": "approve",
+            "feedback": ""
+          }
+        },
+        {
+          "id": 62,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.7935512,
+          "kind": "executed",
+          "actor": "executor",
+          "data": {
+            "proposal_id": "ec171b506b0241aca34198d4b468acee",
+            "action": "escalate",
+            "ticket_id": "TF-1001",
+            "ticket_status": "escalated",
+            "demo": true
+          }
+        },
+        {
+          "id": 63,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.800638,
+          "kind": "agent_started",
+          "actor": "supervisor",
+          "data": {
+            "context_messages": 20
+          }
+        },
+        {
+          "id": 64,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.803041,
+          "kind": "agent_finished",
+          "actor": "supervisor",
+          "data": {
+            "latency_ms": 2,
+            "tokens": 0,
+            "tools": []
+          }
+        },
+        {
+          "id": 65,
+          "run_id": "fcb4311f7cf24e7cb0651b700b58dd7b",
+          "created": 1790748177.807675,
+          "kind": "completed",
+          "actor": "system",
+          "data": {
+            "answer": "已依据两位专家的证据完成审核，并在人工批准后执行 escalate。工单状态：escalated。本次操作仅作用于演示业务库。"
+          }
+        }
+      ]
+    }
+  ],
+  "complete": true,
+  "summary": {
+    "passed": 5,
+    "total": 5,
+    "tokens": 0
+  }
+}
