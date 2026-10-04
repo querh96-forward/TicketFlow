@@ -8,9 +8,9 @@
 
 [快速运行](#快速运行) · [评测结果](#测试与评测) · [演示操作稿](docs/demo.md) · [架构与实现](docs/design.md) · [文档索引](docs/README.md)
 
-![TicketFlow 协作工作台](docs/workbench.png)
+![TicketFlow 协作工作台](docs/workbench.jpg)
 
-*工作台历史截图；运行模式和模型名以本地配置为准。*
+*2026-10-04 工作台实拍：收件箱／回收站、工单删除入口及协作流程；运行模式和模型名以本地配置为准。*
 
 ## 协作流程
 
