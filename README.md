@@ -6,7 +6,7 @@
 
 [![Offline regression](https://github.com/querh96-forward/TicketFlow/actions/workflows/ci.yml/badge.svg)](https://github.com/querh96-forward/TicketFlow/actions/workflows/ci.yml)
 
-[快速运行](#快速运行) · [评测结果](#测试与评测) · [演示操作稿](docs/demo.md) · [架构与实现](docs/design.md) · [文档索引](docs/README.md)
+[快速运行](#快速运行) · [评测结果](#测试与评测) · [架构与实现](docs/design.md) · [文档索引](docs/README.md)
 
 ![TicketFlow 协作工作台](docs/workbench.jpg)
 
@@ -78,7 +78,7 @@ docker compose -p ticketflow up -d --force-recreate --wait
 | TF-1003：平台事故 | 多用户受影响、事故标志存在 | 转人工支持 |
 | TF-1004：授权缺失 | 身份及主管授权不足 | 转人工，不能直接解锁 |
 
-“新建演示工单”会复制初始场景，方便重复演示。全部动作仅修改本地演示数据库。可按[五分钟演示稿](docs/demo.md)展示人工退回、审批等待期间重启、角色追踪和回收站。
+“新建演示工单”会复制初始场景，方便重复演示。全部动作仅修改本地演示数据库。支持人工退回、审批等待期间重启恢复、角色追踪和回收站。
 
 ## 测试与评测
 
